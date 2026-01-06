@@ -32,7 +32,7 @@ function renderSPA() {
   pages.home = Home;
   pages.about = About;
   pages.services = Services;
-  pages.projects = Projects; 
+  pages.projects = Projects; // Correctly maps to the Projects function
   pages.contact = Contact;
   navigate(window.location.hash.replace('#', '') || 'home');
 }
@@ -65,12 +65,12 @@ window.addEventListener('hashchange', () => {
   if(pages[page]) navigate(page);
 });
 
-// --- UPDATED HEADER WITH NEW LOGO FILE --- //
+// --- HEADER WITH LOGO (Asset 4.png) --- //
 function Header() {
   return el('header', {}, [
-    // Logo container: Displaying Asset 4.png (Removed duplicate text)
+    // Logo container: Displaying Asset 4.png
     el('div', { class: 'logo', onclick: () => navigate('home') }, [
-      el('img', { src: 'Asset 4.png', alt: 'Shashwat Logo' }) 
+      el('img', { src: 'Asset 4.png', alt: 'Shashwattech Logo' }) 
     ]),
     el('nav', {}, [
       el('a', { href: '#home', 'data-page': 'home' }, 'Home'),
@@ -103,10 +103,11 @@ function Home() {
   ]);
 }
 
+// --- UPDATED STATS --- //
 function MetricsBar() {
   const metrics = [
-    { num: '1', desc: 'Years Experience' },
-    { num: '1', desc: 'Projects Delivered' },
+    { num: '10+', desc: 'Years Experience' },   // Updated to 10+
+    { num: '70+', desc: 'Projects Delivered' }, // Updated to 70+
     { num: '99.9%', desc: 'Delivery Reliability' }
   ];
   return el('div', { class: 'metric-bar' }, metrics.map(m => 
@@ -168,7 +169,7 @@ function Services() {
   ]);
 }
 
-// --- PROJECTS SECTION --- //
+// --- PROJECTS SECTION (Updated: MMH Contractor) --- //
 function Projects() {
   const projects = [
     {
@@ -240,4 +241,3 @@ addEventListener('DOMContentLoaded', () => {
     });
   }
 });
-
