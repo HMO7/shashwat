@@ -71,7 +71,6 @@ function Header() {
     // Logo container with Image + Text
     el('div', { class: 'logo', onclick: () => navigate('home') }, [
       el('img', { src: 'logo.png', alt: 'Shashwattech Logo' }), // ENSURE 'logo.png' exists
-      el('span', {}, 'Shashwattech')
     ]),
     el('nav', {}, [
       el('a', { href: '#home', 'data-page': 'home' }, 'Home'),
@@ -241,3 +240,4 @@ addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
