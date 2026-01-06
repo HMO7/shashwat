@@ -98,23 +98,22 @@ function Home() {
     WhyShashwattech()
   ]);
 }
+
+// UPDATED METRICS BAR (Horizontal, no icons)
 function MetricsBar() {
   const metrics = [
-    {icon: MetricIcon('medal'), num: '10+', desc: 'Years Experience'},
-    {icon: MetricIcon('rocket'), num: '70+', desc: 'Projects Delivered'},
-    {icon: MetricIcon('shield'), num: '99.9%', desc: 'Delivery Reliability'}
+    { num: '10+', desc: 'Years Experience' },
+    { num: '70+', desc: 'Projects Delivered' },
+    { num: '99.9%', desc: 'Delivery Reliability' }
   ];
-  return el('div', { class: 'metric-bar' }, metrics.map(m => el('div', { class: 'metric' }, [
-    el('div', { class: 'metric-icon' }, m.icon),
-    el('div', { class: 'metric-num' }, m.num),
-    el('div', { class: 'metric-desc' }, m.desc)
-  ])));
+  return el('div', { class: 'metric-bar' }, metrics.map(m => 
+    el('div', { class: 'metric' }, [
+      el('div', { class: 'metric-num' }, m.num),
+      el('div', { class: 'metric-desc' }, m.desc)
+    ])
+  ));
 }
-function MetricIcon(key) {
-  if(key==='medal') return svgEl(`<svg viewBox="0 0 24 24"><circle fill="#2B2BBA" cx="12" cy="8.5" r="5.5"/><rect fill="#CACACA" x="8.2" y="14.2" width="7.6" height="7.1" rx="2"/><circle fill="#E74A00" cx="12" cy="17.5" r="2.3"/></svg>`)
-  if(key==='rocket') return svgEl(`<svg viewBox="0 0 24 24"><path fill="#2B2BBA" d="M7 13l4.14-6.18a1 1 0 0 1 1.72 0L17 13a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1Z"/><rect fill="#CACACA" x="10.1" y="14" width="3.8" height="7.1" rx="2"/><circle fill="#E74A00" cx="12" cy="19" r="1.4"/></svg>`)
-  if(key==='shield') return svgEl(`<svg viewBox="0 0 24 24"><path d="M12 2l8 5v5c0 5.52-3.97 10.74-8 12-4.03-1.26-8-6.48-8-12V7l8-5z" fill="#2B2BBA"/><path d="M12 22c4.03-1.26 8-6.48 8-12V7l-8-5v20z" fill="#CACACA" opacity=".63"/></svg>`)
-}
+
 function svgEl(inner) { const div=document.createElement('span'); div.innerHTML = inner; return div.firstChild; }
 
 function CapabilitiesPreview() {
