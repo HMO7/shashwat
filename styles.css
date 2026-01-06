@@ -44,16 +44,31 @@ header {
   background: #fff8;
   backdrop-filter: blur(7px);
   box-shadow: 0 2px 16px #2B2BBA0A;
-  padding: 28px 40px 0 40px;
+  padding: 20px 40px 0 40px; /* Adjusted padding for logo height */
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: sticky;top:0;z-index:9;
 }
+
+/* --- UPDATED LOGO STYLING --- */
 .logo {
-  font-weight:900;font-size:2.3rem;letter-spacing:1px;
-  color:var(--primary-blue);
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Space between logo and text */
+  font-weight: 900;
+  font-size: 1.8rem; /* Slightly smaller text to balance with logo */
+  letter-spacing: 0.5px;
+  color: var(--primary-blue);
+  cursor: pointer;
 }
+.logo img {
+  height: 48px; /* Adjust height based on your actual logo */
+  width: auto;
+  object-fit: contain;
+}
+/* --------------------------- */
+
 nav {
   display:flex;gap:44px;
 }
@@ -124,38 +139,32 @@ main {
   border:1.4px solid var(--primary-blue);
 }
 
-/* --- UPDATED HERO SECTION --- */
+/* --- HERO SECTION --- */
 .hero {
   display: flex;
   flex-direction: column;
-  align-items: center;      /* Center align all items */
-  text-align: center;       /* Center text */
-  gap: 0;                   /* Reset default gap */
-  padding: 100px 20px 60px 20px; /* Open spacing */
+  align-items: center;
+  text-align: center;
+  gap: 0;
+  padding: 100px 20px 60px 20px;
   z-index: 1;
   position: relative;
   max-width: 1100px;
   margin: 0 auto;
-  
-  /* Removed card styling for open look */
   background: transparent;
   border-radius: 0;
   box-shadow: none;
 }
-
 .hero h1 {
   font-size: 3.5rem;
   font-weight: 900;
   line-height: 1.1;
   color: var(--main-black);
   letter-spacing: -0.02em;
-  
-  /* Constraints */
   max-width: 700px;
   width: 100%;
   margin: 0 0 32px 0;
 }
-
 .hero .tagline {
   font-size: 1.5rem;
   font-weight: 700;
@@ -163,7 +172,6 @@ main {
   max-width: 650px;
   margin-bottom: 24px;
 }
-
 .hero .hero-support {
   font-size: 1.25rem;
   color: var(--deep-blue);
@@ -173,7 +181,6 @@ main {
   max-width: 600px;
   margin-bottom: 48px;
 }
-
 .hero .cta-row {
   margin-bottom: 60px;
   margin-top: 0;
@@ -181,37 +188,32 @@ main {
   gap: 24px;
 }
 
-/* --- UPDATED STATS BAR --- */
+/* --- STATS BAR --- */
 .metric-bar {
   display: flex;
-  flex-direction: row;      /* Horizontal layout */
+  flex-direction: row;
   justify-content: center;
   align-items: flex-start;
-  gap: 80px;                /* Generous spacing */
+  gap: 80px;
   width: 100%;
   max-width: 900px;
   margin-top: 20px;
   margin-bottom: 40px;
-  
-  /* Optional: subtle separator */
   border-top: 1px solid rgba(0,0,0,0.06);
   padding-top: 40px;
 }
-
 .metric {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 4px;
-  background: transparent; /* No card bg */
+  background: transparent;
   border-radius: 0;
   padding: 0;
   box-shadow: none;
   min-width: auto;
 }
-
-.metric .metric-icon { display: none; } /* Hide icons */
-
+.metric .metric-icon { display: none; }
 .metric .metric-num {
   font-size: 3rem;
   font-weight: 800;
@@ -219,7 +221,6 @@ main {
   letter-spacing: -0.02em;
   line-height: 1;
 }
-
 .metric .metric-desc {
   font-size: 0.95rem;
   font-weight: 600;
@@ -229,7 +230,6 @@ main {
   letter-spacing: 0.05em;
   margin-top: 8px;
 }
-
 @media (max-width: 768px) {
   .hero h1 { font-size: 2.5rem; }
   .metric-bar { 
@@ -238,7 +238,6 @@ main {
     border-top: none;
   }
 }
-/* -------------------------- */
 
 .capabilities {display:flex;gap:30px;flex-wrap:wrap;margin:32px 0 0 0;}
 .cap-card { flex:1 1 245px; min-width:200px; background:var(--card-gray); border-radius:var(--radius); padding:19px 14px 17px 14px; display:flex; flex-direction:column;gap:10px;align-items:flex-start; box-shadow:0 1px 8px #cacaca19; transition:box-shadow 0.19s; position:relative;}
@@ -280,12 +279,12 @@ main {
 }
 .service-card:hover {transform:translateY(-10px) scale(1.01);box-shadow:0 8px 44px #2b2bba21;z-index:2;}
 
-/* Product cards */
-.products-grid {display:grid;gap:30px;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));margin-bottom:20px;}
-.product-card {background:var(--card-alt-gray);padding:31px 18px 29px 18px;border-radius:var(--radius);display:flex;flex-direction:column;gap:12px;align-items:flex-start;box-shadow:0 1px 13px #cacaca1a;min-height:170px;position:relative;transition:transform 0.18s, box-shadow 0.19s;outline:none;cursor:pointer;}
-.product-title {font-size:1.11rem;font-weight:800;margin-bottom:7px;letter-spacing:.01em;}
-.product-desc {font-size:1rem;opacity:0.90;margin-bottom:6px;}
-.product-card:hover {box-shadow:0 13px 44px #2b2bba19;transform:translateY(-8px) scale(1.017);}
+/* --- PROJECT CARDS (Replaced Products) --- */
+.projects-grid {display:grid;gap:30px;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));margin-bottom:20px;}
+.project-card {background:var(--card-alt-gray);padding:31px 18px 29px 18px;border-radius:var(--radius);display:flex;flex-direction:column;gap:12px;align-items:flex-start;box-shadow:0 1px 13px #cacaca1a;min-height:170px;position:relative;transition:transform 0.18s, box-shadow 0.19s;outline:none;cursor:pointer;}
+.project-title {font-size:1.11rem;font-weight:800;margin-bottom:7px;letter-spacing:.01em;}
+.project-desc {font-size:1rem;opacity:0.90;margin-bottom:6px;}
+.project-card:hover {box-shadow:0 13px 44px #2b2bba19;transform:translateY(-8px) scale(1.017);}
 
 /* Contact form */
 .contact-section {
