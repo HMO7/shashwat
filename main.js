@@ -105,8 +105,8 @@ function Home() {
 
 function MetricsBar() {
   const metrics = [
-    { num: '10+', desc: 'Years Experience' },
-    { num: '70+', desc: 'Projects Delivered' },
+    { num: '1', desc: 'Years Experience' },
+    { num: '1', desc: 'Projects Delivered' },
     { num: '99.9%', desc: 'Delivery Reliability' }
   ];
   return el('div', { class: 'metric-bar' }, metrics.map(m => 
@@ -240,3 +240,4 @@ addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
