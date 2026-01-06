@@ -32,7 +32,7 @@ function renderSPA() {
   pages.home = Home;
   pages.about = About;
   pages.services = Services;
-  pages.products = Products;
+  pages.projects = Projects; // CHANGED from Products
   pages.contact = Contact;
   navigate(window.location.hash.replace('#', '') || 'home');
 }
@@ -55,10 +55,8 @@ function navigate(page) {
   const main = document.querySelector('main');
   main.innerHTML = '';
   const sec = pages[page]();
-  // keep existing page-specific classes and add shared section class
   sec.classList.add('section');
   main.appendChild(sec);
-  // animate in
   setTimeout(()=>sec.classList.add('visible'),33);
   window.scrollTo(0,0);
 }
@@ -67,22 +65,29 @@ window.addEventListener('hashchange', () => {
   if(pages[page]) navigate(page);
 });
 
+// --- UPDATED HEADER WITH LOGO --- //
 function Header() {
   return el('header', {}, [
-    el('div', { class: 'logo' }, 'Shashwattech'),
+    // Logo container with Image + Text
+    el('div', { class: 'logo', onclick: () => navigate('home') }, [
+      el('img', { src: 'logo.png', alt: 'Shashwattech Logo' }), // ENSURE 'logo.png' exists
+      el('span', {}, 'Shashwattech')
+    ]),
     el('nav', {}, [
       el('a', { href: '#home', 'data-page': 'home' }, 'Home'),
       el('a', { href: '#about', 'data-page': 'about' }, 'About'),
       el('a', { href: '#services', 'data-page': 'services' }, 'Services'),
-      el('a', { href: '#products', 'data-page': 'products' }, 'Products'),
+      el('a', { href: '#projects', 'data-page': 'projects' }, 'Projects'),
       el('a', { href: '#contact', 'data-page': 'contact' }, 'Contact')
     ])
   ]);
 }
+
 function Footer() {
   return el('footer', { style: 'padding:30px 0 18px 0;text-align:center;opacity:0.87;font-size:1rem;margin-top:66px;' },
     `© ${(new Date()).getFullYear()} Shashwattech. All rights reserved.`)
 }
+
 // --- PAGE RENDERERS --- //
 function Home() {
   return el('section', { class: 'hero' }, [
@@ -99,7 +104,6 @@ function Home() {
   ]);
 }
 
-// UPDATED METRICS BAR (Horizontal, no icons)
 function MetricsBar() {
   const metrics = [
     { num: '10+', desc: 'Years Experience' },
@@ -165,16 +169,28 @@ function Services() {
   ]);
 }
 
-function Products() {
-  const products = [
-    {title:'EdgeCase CMS',desc:'A content management solution built for reliability and scale.','cta':'Learn More'},
-    {title:'Insight Analytics','desc':'Analytics platform revealing deep business insights, securely.','cta':'Learn More'},
-    {title:'AutoMailer','desc':'Next-gen automated email infrastructure.','cta':'Learn More'}
+// --- PROJECTS SECTION (Replaced Products) --- //
+function Projects() {
+  const projects = [
+    {
+      title: 'MMH Contractor',
+      desc: 'A comprehensive digital platform for construction and contracting services.',
+      url: 'https://mistry-jeji.vercel.app/',
+      cta: 'Visit Website'
+    }
   ];
   return el('section', {}, [
-    el('h2', { style: 'font-size:2rem;font-weight:900;margin-bottom:19px;' }, 'Our Productized Solutions'),
-    el('div', { class: 'products-grid' }, products.map(p =>
-      el('div', { class: 'product-card', onmouseenter:e=>e.currentTarget.style.transform='translateY(-6px) scale(1.012)',onmouseleave:e=>e.currentTarget.style.transform='' }, [el('div', { class: 'product-title' }, p.title), el('div', { class: 'product-desc' }, p.desc), el('button', { class: 'cta secondary', onclick:()=>navigate('contact') }, p.cta)])))
+    el('h2', { style: 'font-size:2rem;font-weight:900;margin-bottom:19px;' }, 'Our Work'),
+    el('div', { class: 'projects-grid' }, projects.map(p =>
+      el('div', { 
+        class: 'project-card', 
+        onmouseenter:e=>e.currentTarget.style.transform='translateY(-6px) scale(1.012)',
+        onmouseleave:e=>e.currentTarget.style.transform='' 
+      }, [
+        el('div', { class: 'project-title' }, p.title), 
+        el('div', { class: 'project-desc' }, p.desc), 
+        el('button', { class: 'cta secondary', onclick:()=>window.open(p.url, '_blank') }, p.cta)
+      ])))
   ]);
 }
 
