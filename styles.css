@@ -44,30 +44,27 @@ header {
   background: #fff8;
   backdrop-filter: blur(7px);
   box-shadow: 0 2px 16px #2B2BBA0A;
-  padding: 20px 40px 0 40px; /* Adjusted padding for logo height */
+  padding: 18px 40px 10px 40px; /* Adjusted padding for logo */
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: sticky;top:0;z-index:9;
 }
 
-/* --- UPDATED LOGO STYLING --- */
+/* --- LOGO STYLING --- */
 .logo {
   display: flex;
   align-items: center;
-  gap: 12px; /* Space between logo and text */
-  font-weight: 900;
-  font-size: 1.8rem; /* Slightly smaller text to balance with logo */
-  letter-spacing: 0.5px;
-  color: var(--primary-blue);
   cursor: pointer;
+  padding-bottom: 5px; /* Alignment tweak */
 }
 .logo img {
-  height: 48px; /* Adjust height based on your actual logo */
+  height: 55px; /* Increased height for the wordmark logo */
   width: auto;
   object-fit: contain;
+  display: block;
 }
-/* --------------------------- */
+/* ------------------- */
 
 nav {
   display:flex;gap:44px;
@@ -279,7 +276,7 @@ main {
 }
 .service-card:hover {transform:translateY(-10px) scale(1.01);box-shadow:0 8px 44px #2b2bba21;z-index:2;}
 
-/* --- PROJECT CARDS (Replaced Products) --- */
+/* Projects Grid */
 .projects-grid {display:grid;gap:30px;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));margin-bottom:20px;}
 .project-card {background:var(--card-alt-gray);padding:31px 18px 29px 18px;border-radius:var(--radius);display:flex;flex-direction:column;gap:12px;align-items:flex-start;box-shadow:0 1px 13px #cacaca1a;min-height:170px;position:relative;transition:transform 0.18s, box-shadow 0.19s;outline:none;cursor:pointer;}
 .project-title {font-size:1.11rem;font-weight:800;margin-bottom:7px;letter-spacing:.01em;}
@@ -384,7 +381,7 @@ main {
 }
 @media (max-width:600px) {
   header {padding:19px 6vw 0 6vw;}
-  .logo {font-size:1.43rem;}
+  .logo img {height: 42px;} /* Smaller logo for mobile */
   nav {gap:14px;}
   main {padding:18px 2vw 0 2vw;}
   .capabilities {gap:5px;}
