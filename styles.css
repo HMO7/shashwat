@@ -124,77 +124,121 @@ main {
   border:1.4px solid var(--primary-blue);
 }
 
+/* --- UPDATED HERO SECTION --- */
 .hero {
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  gap:35px;
-  padding:72px 56px 72px 56px;
-  z-index:1;position:relative;
-  max-width:840px;
-  margin:0 auto 0 auto;
-  background: rgba(255,255,255,0.93);
-  border-radius: 30px;
-  box-shadow: 0 6px 56px 1px #023e7d10;
-}
-.hero h1 {
-  font-size:3.2rem;
-  font-weight:900;
-  line-height:1.13;
-  margin:0 0 24px 0;
-  color:var(--main-black);
-  letter-spacing:0.01em;
-}
-.hero .tagline {
-  font-size:1.44rem;
-  font-weight:700;
-  color:var(--primary-blue);
-  margin-bottom:18px;
-}
-.hero .hero-support {
-  font-size:1.17rem;
-  color:var(--deep-blue);
-  font-weight:600;
-  margin-bottom:33px;
-  letter-spacing:.009em;
-  max-width:640px;
-}
-.hero .cta-row {
-  margin-bottom:38px;
-  margin-top:32px;
   display: flex;
-  gap: 32px;
+  flex-direction: column;
+  align-items: center;      /* Center align all items */
+  text-align: center;       /* Center text */
+  gap: 0;                   /* Reset default gap */
+  padding: 100px 20px 60px 20px; /* Open spacing */
+  z-index: 1;
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  
+  /* Removed card styling for open look */
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
 }
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--main-black);
+  letter-spacing: -0.02em;
+  
+  /* Constraints */
+  max-width: 700px;
+  width: 100%;
+  margin: 0 0 32px 0;
+}
+
+.hero .tagline {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+  max-width: 650px;
+  margin-bottom: 24px;
+}
+
+.hero .hero-support {
+  font-size: 1.25rem;
+  color: var(--deep-blue);
+  font-weight: 500;
+  line-height: 1.6;
+  opacity: 0.9;
+  max-width: 600px;
+  margin-bottom: 48px;
+}
+
+.hero .cta-row {
+  margin-bottom: 60px;
+  margin-top: 0;
+  display: flex;
+  gap: 24px;
+}
+
+/* --- UPDATED STATS BAR --- */
 .metric-bar {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-  gap:32px;
-  margin-top:8px;
-  margin-bottom:40px;
+  display: flex;
+  flex-direction: row;      /* Horizontal layout */
+  justify-content: center;
+  align-items: flex-start;
+  gap: 80px;                /* Generous spacing */
+  width: 100%;
+  max-width: 900px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  
+  /* Optional: subtle separator */
+  border-top: 1px solid rgba(0,0,0,0.06);
+  padding-top: 40px;
 }
+
 .metric {
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  gap:8px;
-  background:var(--card-alt-gray);
-  border-radius:var(--radius);
-  padding:22px 20px;
-  min-width:140px;
-  box-shadow:0 1px 11px #cacaca26;
-  transition:background var(--transition), box-shadow var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: transparent; /* No card bg */
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  min-width: auto;
 }
-.metric .metric-icon {font-size:2.05rem;color:var(--primary-blue);margin-bottom:2px;}
+
+.metric .metric-icon { display: none; } /* Hide icons */
+
 .metric .metric-num {
-  font-size:1.6rem;
-  font-weight:800;
-  letter-spacing:1px;
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--main-black);
+  letter-spacing: -0.02em;
+  line-height: 1;
 }
+
 .metric .metric-desc {
-  font-size:0.98rem;
-  opacity:.8;
-  font-weight:600;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--deep-blue);
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 8px;
 }
+
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2.5rem; }
+  .metric-bar { 
+    flex-direction: column; 
+    gap: 32px; 
+    border-top: none;
+  }
+}
+/* -------------------------- */
 
 .capabilities {display:flex;gap:30px;flex-wrap:wrap;margin:32px 0 0 0;}
 .cap-card { flex:1 1 245px; min-width:200px; background:var(--card-gray); border-radius:var(--radius); padding:19px 14px 17px 14px; display:flex; flex-direction:column;gap:10px;align-items:flex-start; box-shadow:0 1px 8px #cacaca19; transition:box-shadow 0.19s; position:relative;}
