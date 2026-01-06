@@ -32,7 +32,7 @@ function renderSPA() {
   pages.home = Home;
   pages.about = About;
   pages.services = Services;
-  pages.projects = Projects; // CHANGED from Products
+  pages.projects = Projects; 
   pages.contact = Contact;
   navigate(window.location.hash.replace('#', '') || 'home');
 }
@@ -65,12 +65,12 @@ window.addEventListener('hashchange', () => {
   if(pages[page]) navigate(page);
 });
 
-// --- UPDATED HEADER WITH LOGO --- //
+// --- UPDATED HEADER WITH NEW LOGO FILE --- //
 function Header() {
   return el('header', {}, [
-    // Logo container with Image + Text
+    // Logo container: Displaying Asset 4.png (Removed duplicate text)
     el('div', { class: 'logo', onclick: () => navigate('home') }, [
-      el('img', { src: 'logo.png', alt: 'Shashwattech Logo' }), // ENSURE 'logo.png' exists
+      el('img', { src: 'Asset 4.png', alt: 'Shashwat Logo' }) 
     ]),
     el('nav', {}, [
       el('a', { href: '#home', 'data-page': 'home' }, 'Home'),
@@ -168,7 +168,7 @@ function Services() {
   ]);
 }
 
-// --- PROJECTS SECTION (Replaced Products) --- //
+// --- PROJECTS SECTION --- //
 function Projects() {
   const projects = [
     {
@@ -240,4 +240,3 @@ addEventListener('DOMContentLoaded', () => {
     });
   }
 });
-
