@@ -16,5 +16,37 @@
     <div id="bg-abstract"></div>
     <div id="root"></div>
     <script src="main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+ <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+
+    emailjs.init("GDhiX8t94W1Idi-5Z");
+
+    const form = document.getElementById("contactForm");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      emailjs.sendForm(
+        "service_7581x7l",
+        "template_sy5gpua",
+        form
+      ).then(
+        function () {
+          alert("Message sent successfully!");
+          form.reset();
+        },
+        function (error) {
+          alert("Failed to send message. Please try again.");
+          console.error("EmailJS Error:", error);
+        }
+      );
+    });
+
+  });
+</script>  
   </body>
 </html>
+
